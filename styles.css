@@ -583,6 +583,70 @@ h1, h2, h3, h4 {
     padding-top: 0.75rem;
 }
 
+/* --- In-House Products --- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    padding: 1.75rem;
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 243, 255, 0.1);
+}
+
+.product-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+}
+
+.product-card > p {
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.product-features {
+    list-style: none;
+    margin: 0 0 1.25rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+}
+
+.product-features li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.product-features li::before {
+    content: "\25B9";
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+}
+
+.product-features li strong {
+    color: var(--text-main);
+}
+
 /* --- Process --- */
 .process-grid {
     display: grid;
