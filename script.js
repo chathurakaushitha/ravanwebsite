@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 4. HOLOGRAPHIC 3D TILT ---
+    // --- 4. HOLOGRAPHIC 3D TILT (+ magnetic pull toward cursor) ---
     if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
         document.querySelectorAll('.tilt-card, .service-col').forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -216,10 +216,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cy = rect.height / 2;
                 const rotateX = ((y - cy) / cy) * -5;
                 const rotateY = ((x - cx) / cx) * 5;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                const moveX = ((x - cx) / cx) * 6;
+                const moveY = ((y - cy) / cy) * 6;
+                card.style.transform = `perspective(1000px) translate(${moveX}px, ${moveY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
             });
             card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+                card.style.transform = `perspective(1000px) translate(0, 0) rotateX(0deg) rotateY(0deg)`;
             });
         });
     }
